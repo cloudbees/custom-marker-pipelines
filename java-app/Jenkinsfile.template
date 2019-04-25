@@ -15,7 +15,7 @@ pipeline {
      container('maven') {
        echo "Tag: ${params.CUCUMBER_TAG}"
         sh """
-        mvn test -Dcucumber.options=\\"--tag @completed\\"
+        mvn test -Dcucumber.options=\\"--tags @completed\\"
         """
         }
       }
