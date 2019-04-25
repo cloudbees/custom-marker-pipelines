@@ -1,6 +1,6 @@
 pipeline {
   parameters {
-    string(defaultValue: "", description: 'Cucumber Tag', name: 'CUCUMBER_TAG')
+    string(defaultValue: "@completed", description: 'Cucumber Tag', name: 'CUCUMBER_TAG')
   }
   agent {
     kubernetes
@@ -13,8 +13,8 @@ pipeline {
 
       steps {
      container('maven') {
-       echo "${params.CUCUMBER_TAG}"
-        sh "mvn test"
+       echo "Tag: ${params.CUCUMBER_TAG}"
+        sh "mvn test -Dcucumber.options="--tag ${params.CUCUMBER_TAG}""
         }
       }
     }
