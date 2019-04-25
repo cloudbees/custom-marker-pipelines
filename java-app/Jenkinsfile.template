@@ -1,6 +1,6 @@
 pipeline {
   parameters {
-    string(defaultValue: "@completed", description: 'Cucumber Tag', name: 'CUCUMBER_TAG')
+    string(defaultValue: "completed", description: 'Cucumber Tag', name: 'CUCUMBER_TAG')
   }
   agent {
     kubernetes
