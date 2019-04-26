@@ -1,11 +1,5 @@
 pipeline {
-
-  agent {
-    kubernetes
-    {
-    label 'java-app'
-    }
-   }
+agent { label ‘java-app’ }
   stages {
     stage('Test feature branch') {
       when {
@@ -17,12 +11,10 @@ pipeline {
         sh """
         mvn test -Dcucumber.options="--tags @${env.BRANCH_NAME}"
         """
-
         }
       }
     }
     stage('Test master branch') {
-
       steps {
      container('maven') {
         sh """
