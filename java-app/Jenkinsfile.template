@@ -20,7 +20,6 @@ agent { label 'java-app' }
         sh """
         mvn test -Dcucumber.options="--tags @master"
         """
-
         }
       }
     }
