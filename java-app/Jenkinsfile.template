@@ -12,7 +12,7 @@ pipeline {
       steps {
      container('maven') {
         sh """
-        mvn test -Dcucumber.options="--tags ${env.BRANCH_NAME}"
+        mvn test -Dcucumber.options="--tags @${env.BRANCH_NAME}"
         """
 
         }
