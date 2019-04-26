@@ -1,5 +1,5 @@
 pipeline {
-agent { label ‘java-app’ }
+agent { label 'java-app' }
   stages {
     stage('Test feature branch') {
       when {
