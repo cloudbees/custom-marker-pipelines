@@ -7,7 +7,21 @@ pipeline {
     }
    }
   stages {
-    stage('Test') {
+    stage('Test feature branch') {
+      when {
+        not { branch 'master'
+          }
+        }
+      steps {
+     container('maven') {
+        sh """
+        mvn test -Dcucumber.options="--tags @${env.BRANCH_NAME}"
+        """
+
+        }
+      }
+    }
+    stage('Test master branch') {
 
       steps {
      container('maven') {
