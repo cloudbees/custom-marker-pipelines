@@ -2,7 +2,7 @@ pipeline {
   agent { label 'nodejs-app' }
 
     stages {
-        stage('Build') {
+        stage('Setup') {
             steps {
              container('node-alpine') {
                sh '''
