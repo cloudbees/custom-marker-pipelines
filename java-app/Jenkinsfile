@@ -1,12 +1,13 @@
 pipeline {
   agent {
     kubernetes {
+      label mypod
       yaml """
 apiVersion: v1
 kind: Pod
 metadata:
   labels:
-    some-label: some-label-value
+    label: mypod
 spec:
   containers:
   - name: maven
