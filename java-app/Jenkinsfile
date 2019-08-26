@@ -21,7 +21,9 @@ spec:
     - cat
     tty: true
 """
-    }  stages {
+    }
+  }
+  stages {
     stage('Test feature branch') {
       when {
         not { branch 'master'
