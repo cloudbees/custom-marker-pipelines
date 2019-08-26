@@ -1,6 +1,23 @@
 pipeline {
-  agent { label 'nodejs-app' }
-
+  agent {
+    kubernetes {
+      label 'mypod'
+      yaml """
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    label: mypod
+spec:
+  containers:
+  - name: node-alpine
+    image: node:12.7.0-alpine
+    command:
+    - cat
+    tty: true
+"""
+    }
+  }
     stages {
         stage('Setup') {
             steps {
