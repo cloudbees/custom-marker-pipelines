@@ -7,7 +7,7 @@ apiVersion: v1
 kind: Pod
 metadata:
   labels:
-    label: 'my-node-pod'
+    label: my-node-pod
 spec:
   containers:
   - name: node-alpine
